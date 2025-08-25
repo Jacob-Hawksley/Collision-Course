@@ -1,0 +1,184 @@
+[gd_scene load_steps=19 format=3 uid="uid://cb0u1wq7u4jpd"]
+
+[ext_resource type="Texture2D" uid="uid://dknrd3oq865gx" path="res://torso.png" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://uo8vklk03kfn" path="res://head.png" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://jmxrrawf2slx" path="res://leftarm.png" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://cyv1ww2flpxsn" path="res://rightarm.png" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://brb07fuiie3aa" path="res://leg.png" id="5_kek77"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_4c57u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efxa6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lquwl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(74, 134)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg77c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7mycd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(53, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycdy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_272bh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(29.0356, 82.6818)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5vw27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(29.9911, 80.1025)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vivmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kek77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(28, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cqfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kek77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57u"]
+size = Vector2(28, 83)
+
+[node name="Main" type="Node"]
+
+[node name="Player1" type="CharacterBody2D" parent="."]
+position = Vector2(204, 302)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Player1"]
+modification_stack = SubResource("SkeletonModificationStack2D_4c57u")
+
+[node name="Torso" type="Bone2D" parent="Player1/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1/Skeleton2D/Torso"]
+sprite_frames = SubResource("SpriteFrames_efxa6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player1/Skeleton2D/Torso"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Skeleton2D/Torso/StaticBody2D"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Head" type="Bone2D" parent="Player1/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1/Skeleton2D/Head"]
+position = Vector2(-3, -78)
+sprite_frames = SubResource("SpriteFrames_dg77c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player1/Skeleton2D/Head"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Skeleton2D/Head/StaticBody2D"]
+position = Vector2(0.5, -77)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="LArm" type="Bone2D" parent="Player1/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1/Skeleton2D/LArm"]
+position = Vector2(-68, -13)
+sprite_frames = SubResource("SpriteFrames_ycdy4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player1/Skeleton2D/LArm"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Skeleton2D/LArm/StaticBody2D"]
+position = Vector2(-64.5585, -16.4215)
+rotation = 0.845047
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="RArm" type="Bone2D" parent="Player1/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1/Skeleton2D/RArm"]
+position = Vector2(65, -9)
+sprite_frames = SubResource("SpriteFrames_w48qg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player1/Skeleton2D/RArm"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Skeleton2D/RArm/StaticBody2D"]
+position = Vector2(64.566, -13.7674)
+rotation = -0.823218
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="LLeg" type="Bone2D" parent="Player1/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1/Skeleton2D/LLeg"]
+position = Vector2(-19, 109)
+sprite_frames = SubResource("SpriteFrames_vivmo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player1/Skeleton2D/LLeg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Skeleton2D/LLeg/StaticBody2D"]
+position = Vector2(-19, 108.5)
+shape = SubResource("RectangleShape2D_kek77")
+
+[node name="RLeg" type="Bone2D" parent="Player1/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1/Skeleton2D/RLeg"]
+position = Vector2(16, 109)
+sprite_frames = SubResource("SpriteFrames_2cqfq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player1/Skeleton2D/RLeg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Skeleton2D/RLeg/StaticBody2D"]
+position = Vector2(16, 109.5)
+shape = SubResource("RectangleShape2D_4c57u")
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+position = Vector2(204, 302)
