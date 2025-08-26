@@ -20,4 +20,4 @@ flip_h = true
 script = ExtResource("2_bttkv")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-37, -20)
+position = Vector2(-3, -20)

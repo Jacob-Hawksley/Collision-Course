@@ -158,17 +158,18 @@ position = Vector2(16, 109)
 sprite_frames = SubResource("SpriteFrames_u34kq")
 
 [node name="RArm" type="RigidBody2D" parent="."]
+position = Vector2(131, -44)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RArm"]
-position = Vector2(75, -35)
+position = Vector2(-56.5, 9)
 rotation = 1.5708
 scale = Vector2(2.16566, 2.64226)
 shape = SubResource("RectangleShape2D_1vtoj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RArm"]
-position = Vector2(77, -36)
+position = Vector2(-54.5, 8)
 sprite_frames = SubResource("SpriteFrames_x4625")
 
 [node name="LArm" type="RigidBody2D" parent="."]
