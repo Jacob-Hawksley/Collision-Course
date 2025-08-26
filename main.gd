@@ -1,2 +1,2 @@
 extends Node
-var leftweapon1 = null
+var leftweapon1 = preload("res://pistol.tscn")
