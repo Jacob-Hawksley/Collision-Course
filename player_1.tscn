@@ -7,6 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://uo8vklk03kfn" path="res://head.png" id="5_gf2bl"]
 [ext_resource type="Texture2D" uid="uid://dknrd3oq865gx" path="res://torso.png" id="6_72vom"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyu8a"]
+size = Vector2(74, 134)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqcrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_72vom")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugj0w"]
 size = Vector2(28, 83)
 
@@ -36,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vtoj"]
-size = Vector2(29.9911, 80.1025)
+size = Vector2(13.1485, 28.4841)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x4625"]
 animations = [{
@@ -77,28 +91,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyu8a"]
-size = Vector2(74, 134)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qqcrl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_72vom")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nydg"]
-size = Vector2(72, 132)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i66ns"]
+size = Vector2(73, 131)
 
 [node name="Player1" type="CharacterBody2D"]
 script = ExtResource("1_i66ns")
 
 [node name="Head-Torso" type="PinJoint2D" parent="."]
-position = Vector2(-2, -64)
+position = Vector2(-2, -67)
 node_a = NodePath("../Torso")
 node_b = NodePath("../Head")
 
@@ -122,7 +122,20 @@ position = Vector2(15, 68)
 node_a = NodePath("../Torso")
 node_b = NodePath("../RLeg")
 
+[node name="Torso" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_iyu8a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torso"]
+sprite_frames = SubResource("SpriteFrames_qqcrl")
+
 [node name="LLeg" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LLeg"]
 position = Vector2(-19, 108.5)
@@ -133,6 +146,8 @@ position = Vector2(-19, 109)
 sprite_frames = SubResource("SpriteFrames_n0cnt")
 
 [node name="RLeg" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RLeg"]
 position = Vector2(16, 109.5)
@@ -143,28 +158,36 @@ position = Vector2(16, 109)
 sprite_frames = SubResource("SpriteFrames_u34kq")
 
 [node name="RArm" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RArm"]
-position = Vector2(66, -8)
-rotation = -0.823218
+position = Vector2(75, -35)
+rotation = 1.5708
+scale = Vector2(2.16566, 2.64226)
 shape = SubResource("RectangleShape2D_1vtoj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RArm"]
-position = Vector2(65, -9)
+position = Vector2(77, -36)
 sprite_frames = SubResource("SpriteFrames_x4625")
 
 [node name="LArm" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LArm"]
-position = Vector2(-67, -14)
-rotation = 0.845047
+position = Vector2(-76, -39)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_tenil")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LArm"]
-position = Vector2(-68, -13)
+position = Vector2(-78, -38)
 sprite_frames = SubResource("SpriteFrames_l7vjq")
 
 [node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(-1, -7)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 position = Vector2(-3, -79)
@@ -174,16 +197,6 @@ shape = SubResource("RectangleShape2D_8aa6u")
 position = Vector2(-3, -78)
 sprite_frames = SubResource("SpriteFrames_hd4a6")
 
-[node name="Torso" type="RigidBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso"]
-position = Vector2(-1, 2)
-shape = SubResource("RectangleShape2D_iyu8a")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torso"]
-sprite_frames = SubResource("SpriteFrames_qqcrl")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_8nydg")
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_i66ns")
