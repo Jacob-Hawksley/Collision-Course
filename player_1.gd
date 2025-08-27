@@ -5,7 +5,7 @@ var rightweaponactive = false
 @onready var rightarm = $RArm
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var event = null
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 		newleftweapon(Main.leftweapon1)
 	if not rightweaponactive:
 		newrightweapon(Main.rightweapon1)
+	leftarm.rotate(get_angle_to(get_viewport().get_mouse_position()) - 1.5708)
+	rightarm.rotate(get_angle_to(get_viewport().get_mouse_position()) - 1.5708)
 	
 func newleftweapon(weapon):
 	leftweaponactive = true
