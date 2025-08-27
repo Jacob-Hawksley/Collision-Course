@@ -101,16 +101,20 @@ script = ExtResource("1_i66ns")
 position = Vector2(-2, -67)
 node_a = NodePath("../Torso")
 node_b = NodePath("../Head")
+angular_limit_lower = -0.872665
+angular_limit_upper = 0.891863
 
 [node name="LArm-Torso" type="PinJoint2D" parent="."]
 position = Vector2(-37, -39)
-node_a = NodePath("../Torso")
-node_b = NodePath("../LArm")
+node_a = NodePath("../LArm")
+node_b = NodePath("../Torso")
+bias = 0.9
 
 [node name="RArm-Torso" type="PinJoint2D" parent="."]
 position = Vector2(35, -34)
-node_a = NodePath("../Torso")
-node_b = NodePath("../RArm")
+node_a = NodePath("../RArm")
+node_b = NodePath("../Torso")
+bias = 0.9
 
 [node name="LLeg-Torso" type="PinJoint2D" parent="."]
 position = Vector2(-21, 67)
@@ -134,8 +138,8 @@ shape = SubResource("RectangleShape2D_iyu8a")
 sprite_frames = SubResource("SpriteFrames_qqcrl")
 
 [node name="LLeg" type="RigidBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LLeg"]
 position = Vector2(-19, 108.5)
@@ -146,8 +150,8 @@ position = Vector2(-19, 109)
 sprite_frames = SubResource("SpriteFrames_n0cnt")
 
 [node name="RLeg" type="RigidBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RLeg"]
 position = Vector2(16, 109.5)
@@ -188,8 +192,8 @@ sprite_frames = SubResource("SpriteFrames_l7vjq")
 
 [node name="Head" type="RigidBody2D" parent="."]
 position = Vector2(-1, -7)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 position = Vector2(-3, -79)

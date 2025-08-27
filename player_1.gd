@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shootr"):
 		rightweapon.shootr()
 func _physics_process(delta: float) -> void:
-	leftarm.rotate(leftarm.get_angle_to(get_viewport().get_mouse_position())+3.14159)
-	rightarm.rotate(rightarm.get_angle_to(get_viewport().get_mouse_position()))
+	leftarm.rotate(leftarm.get_angle_to(get_global_mouse_position())+3.14159)
+	rightarm.rotate(rightarm.get_angle_to(get_global_mouse_position()))
 	velocity += Main.recoil
 	Main.recoil = Vector2.ZERO
 	if not is_on_floor():

@@ -4,7 +4,7 @@ extends AnimatedSprite2D
 @onready var crosshair = $Marker2D
 var hand = null
 var damage = 2
-var knockback_force = 1500.0
+var knockback_force = 150.0
 
 
 
@@ -14,7 +14,7 @@ func shootl():
 	b.scale = Vector2(0.5,0.5)
 	get_node("/root/Main").add_child(b)#
 	var knockbackdirection = b.transform.x
-	Main.recoil = knockbackdirection * knockback_force
+	Main.recoil += knockbackdirection * knockback_force
 func shootr():
 	var b = bullet.instantiate()
 	b.transform = crosshair.global_transform
@@ -22,4 +22,4 @@ func shootr():
 	b.scale = Vector2(0.5,0.5)
 	get_node("/root/Main").add_child(b)
 	var knockbackdirection = b.transform.x
-	Main.recoil = knockbackdirection * knockback_force
+	Main.recoil += knockbackdirection * knockback_force
