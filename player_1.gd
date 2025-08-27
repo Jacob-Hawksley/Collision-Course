@@ -1,33 +1,40 @@
 extends CharacterBody2D
 var leftweaponactive = false
 var rightweaponactive = false
-@onready var leftarm = $LArm
-@onready var rightarm = $RArm
+@onready var leftarm: RigidBody2D = $LArm
+@onready var rightarm: RigidBody2D = $RArm
+@onready var LArmPin = $"LArm-Torso"
+@onready var RArmPin = $"RArm-Torso"
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var event = null
+var leftweapon = null
+var rightweapon = null
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+
 
 func _process(delta: float) -> void:
 	if not leftweaponactive:
 		newleftweapon(Main.leftweapon1)
 	if not rightweaponactive:
 		newrightweapon(Main.rightweapon1)
-	leftarm.rotate(get_angle_to(get_viewport().get_mouse_position()) - 1.5708)
-	rightarm.rotate(get_angle_to(get_viewport().get_mouse_position()) - 1.5708)
+	if Input.is_action_just_pressed("shoot"):
+		leftweapon.shootl()
+		velocity += leftarm.global_rotation * leftweapon.damage
+	if Input.is_action_just_pressed("shootr"):
+		rightweapon.shootr()
+func _physics_process(delta: float) -> void:
+	leftarm.rotate(leftarm.get_angle_to(get_viewport().get_mouse_position())+3.14159)
+	rightarm.rotate(rightarm.get_angle_to(get_viewport().get_mouse_position()))
+	velocity += Main.recoil
 	
 func newleftweapon(weapon):
 	leftweaponactive = true
-	var leftweapon = weapon.instantiate()
+	leftweapon = weapon.instantiate()
 	leftarm.add_child(leftweapon)
-	leftweapon.left()
+	leftweapon.position.x -= 100
 func newrightweapon(weapon):
 	rightweaponactive = true
-	var rightweapon = weapon.instantiate()
+	rightweapon = weapon.instantiate()
 	rightarm.add_child(rightweapon)
 	rightweapon.flip_h = false
-	rightweapon.right()
+	rightweapon.position.x += 100

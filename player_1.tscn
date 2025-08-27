@@ -159,8 +159,8 @@ sprite_frames = SubResource("SpriteFrames_u34kq")
 
 [node name="RArm" type="RigidBody2D" parent="."]
 position = Vector2(36, -39)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RArm"]
 position = Vector2(40.5, 6)
@@ -174,8 +174,8 @@ sprite_frames = SubResource("SpriteFrames_x4625")
 
 [node name="LArm" type="RigidBody2D" parent="."]
 position = Vector2(-37, -40)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LArm"]
 position = Vector2(-38.5, 3)
