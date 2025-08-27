@@ -25,10 +25,10 @@ func _physics_process(delta: float) -> void:
 	leftarm.rotate(leftarm.get_angle_to(get_viewport().get_mouse_position())+3.14159)
 	rightarm.rotate(rightarm.get_angle_to(get_viewport().get_mouse_position()))
 	velocity += Main.recoil
-	velocity = Vector2.ZERO
+	Main.recoil = Vector2.ZERO
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
+	move_and_slide()
 func newleftweapon(weapon):
 	leftweaponactive = true
 	leftweapon = weapon.instantiate()
