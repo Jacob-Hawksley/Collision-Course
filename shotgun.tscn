@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://blchrefx2rmng"]
+
+[ext_resource type="Texture2D" uid="uid://dyq00oka27sln" path="res://shotgun.png" id="1_hn68x"]
+[ext_resource type="Script" uid="uid://dyfvx3ss78sof" path="res://shotgun.gd" id="2_5bb75"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bb75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hn68x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shotgun" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5bb75")
+script = ExtResource("2_5bb75")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -7)
