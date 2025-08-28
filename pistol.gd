@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func shootl():
 	if shootcd <= 0:
-		shootcd = 0.4
+		shootcd = 0.3
 		var b = bullet.instantiate()
 		b.transform = crosshair.global_transform
 		b.scale = Vector2(0.5,0.5)
@@ -22,7 +22,7 @@ func shootl():
 		Main.recoil += knockbackdirection * knockback_force
 func shootr():
 	if shootcd <= 0:
-		shootcd = 0.4
+		shootcd = 0.3
 		var b = bullet.instantiate()
 		b.transform = crosshair.global_transform
 		b.rotate(3.14159)

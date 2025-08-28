@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://blchrefx2rmng"]
+[gd_scene load_steps=5 format=3 uid="uid://blchrefx2rmng"]
 
 [ext_resource type="Texture2D" uid="uid://dyq00oka27sln" path="res://shotgun.png" id="1_hn68x"]
 [ext_resource type="Script" uid="uid://dyfvx3ss78sof" path="res://shotgun.gd" id="2_5bb75"]
+[ext_resource type="Texture2D" uid="uid://b6ag0ko78yba6" path="res://shotgunammo.png" id="3_7oeqp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bb75"]
 animations = [{
@@ -20,3 +21,11 @@ script = ExtResource("2_5bb75")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -7)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+max_value = 4.0
+value = 4.0
+texture_progress = ExtResource("3_7oeqp")
