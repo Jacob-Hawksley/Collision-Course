@@ -14,18 +14,18 @@ var rightweapon = null
 
 func _process(delta: float) -> void:
 	if not leftweaponactive:
-		newleftweapon(Main.leftweapon1)
+		newleftweapon(Main.leftweapon2)
 	if not rightweaponactive:
-		newrightweapon(Main.rightweapon1)
-	if Input.is_action_just_pressed("shoot"):
-		leftweapon.shootl('1')
-	if Input.is_action_just_pressed("shootr"):
-		rightweapon.shootr('1')
+		newrightweapon(Main.rightweapon2)
+	if Input.is_action_just_pressed("2shoot"):
+		leftweapon.shootl('2')
+	if Input.is_action_just_pressed("2shootr"):
+		rightweapon.shootr('2')
 func _physics_process(delta: float) -> void:
-	leftarm.rotate(leftarm.get_angle_to(get_global_mouse_position())+3.14159)
-	rightarm.rotate(rightarm.get_angle_to(get_global_mouse_position()))
-	velocity += Main.recoil
-	Main.recoil = Vector2.ZERO
+	leftarm.rotation = (Input.get_vector("2left","2right","2up","2down").angle() + 3.14159)
+	rightarm.rotation = (Input.get_vector("2left","2right","2up","2down").angle())
+	velocity += Main.recoil2
+	Main.recoil2 = Vector2.ZERO
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()

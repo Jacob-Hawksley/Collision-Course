@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 		shootcd -= delta
 
 
-func shootl():
+func shootl(player):
 	if shootcd <= 0:
 		shootcd = 0.3
 		var b = bullet.instantiate()
@@ -19,8 +19,11 @@ func shootl():
 		b.scale = Vector2(0.5,0.5)
 		get_node("/root/Main").add_child(b)#
 		var knockbackdirection = b.transform.x
-		Main.recoil += knockbackdirection * knockback_force
-func shootr():
+		if player == '1':
+			Main.recoil += knockbackdirection * knockback_force
+		elif player == '2':
+			Main.recoil2 += knockbackdirection * knockback_force
+func shootr(player):
 	if shootcd <= 0:
 		shootcd = 0.3
 		var b = bullet.instantiate()
@@ -29,4 +32,7 @@ func shootr():
 		b.scale = Vector2(0.5,0.5)
 		get_node("/root/Main").add_child(b)
 		var knockbackdirection = b.transform.x
-		Main.recoil += knockbackdirection * knockback_force
+		if player == '1':
+			Main.recoil += knockbackdirection * knockback_force
+		elif player == '2':
+			Main.recoil2 += knockbackdirection * knockback_force
