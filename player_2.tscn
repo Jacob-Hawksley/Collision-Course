@@ -95,6 +95,8 @@ animations = [{
 size = Vector2(73, 131)
 
 [node name="Player2" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_1hlws")
 
 [node name="Head-Torso" type="PinJoint2D" parent="."]
@@ -127,8 +129,8 @@ node_a = NodePath("../Torso")
 node_b = NodePath("../RLeg")
 
 [node name="Torso" type="RigidBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torso"]
 position = Vector2(-1, 2)
