@@ -12,7 +12,10 @@ var rightweapon = null
 
 
 
+
 func _process(delta: float) -> void:
+	if Main.hp1 <= 0:
+		pass
 	if not leftweaponactive:
 		newleftweapon(Main.leftweapon1)
 	if not rightweaponactive:
@@ -40,3 +43,6 @@ func newrightweapon(weapon):
 	rightarm.add_child(rightweapon)
 	rightweapon.flip_h = false
 	rightweapon.position.x += 100
+
+func hurt(damage):
+	Main.hp1 -= damage
