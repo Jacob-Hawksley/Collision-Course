@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dd8ia7303b0om"]
+[gd_scene load_steps=24 format=3 uid="uid://dd8ia7303b0om"]
 
 [ext_resource type="Script" uid="uid://c21t8chemd2h7" path="res://player_1.gd" id="1_i66ns"]
 [ext_resource type="Texture2D" uid="uid://brb07fuiie3aa" path="res://leg.png" id="2_lq3ur"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://jmxrrawf2slx" path="res://leftarm.png" id="4_dkxmd"]
 [ext_resource type="Texture2D" uid="uid://uo8vklk03kfn" path="res://head.png" id="5_gf2bl"]
 [ext_resource type="Texture2D" uid="uid://dknrd3oq865gx" path="res://torso.png" id="6_72vom"]
+[ext_resource type="Texture2D" uid="uid://ckfgf5awodso6" path="res://bottomhp.png" id="7_dkxmd"]
+[ext_resource type="Texture2D" uid="uid://pb7d4lsxkwsc" path="res://Tophp.png" id="8_gf2bl"]
+[ext_resource type="Texture2D" uid="uid://db4el83a755qc" path="res://Playerhp.png" id="9_72vom"]
+[ext_resource type="Script" uid="uid://bkmtchhyga65g" path="res://hp_1.gd" id="10_gf2bl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyu8a"]
 size = Vector2(74, 134)
@@ -95,6 +99,8 @@ animations = [{
 size = Vector2(73, 131)
 
 [node name="Player1" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_i66ns")
 
 [node name="Head-Torso" type="PinJoint2D" parent="."]
@@ -136,6 +142,18 @@ shape = SubResource("RectangleShape2D_iyu8a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torso"]
 sprite_frames = SubResource("SpriteFrames_qqcrl")
+
+[node name="hp1" type="TextureProgressBar" parent="Torso"]
+offset_left = -63.0
+offset_top = -169.0
+offset_right = 61.0
+offset_bottom = -128.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_dkxmd")
+texture_over = ExtResource("8_gf2bl")
+texture_progress = ExtResource("9_72vom")
+script = ExtResource("10_gf2bl")
 
 [node name="LLeg" type="RigidBody2D" parent="."]
 collision_layer = 0

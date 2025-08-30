@@ -1,11 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://b078xwe67lrni"]
+[gd_scene load_steps=23 format=3 uid="uid://b078xwe67lrni"]
 
 [ext_resource type="Script" uid="uid://ogyl7g0oh1tj" path="res://player_2.gd" id="1_1hlws"]
-[ext_resource type="Texture2D" uid="uid://dknrd3oq865gx" path="res://torso.png" id="2_0jhxp"]
-[ext_resource type="Texture2D" uid="uid://brb07fuiie3aa" path="res://leg.png" id="3_6iqoo"]
-[ext_resource type="Texture2D" uid="uid://cyv1ww2flpxsn" path="res://rightarm.png" id="4_jaoer"]
-[ext_resource type="Texture2D" uid="uid://jmxrrawf2slx" path="res://leftarm.png" id="5_8lhrm"]
-[ext_resource type="Texture2D" uid="uid://uo8vklk03kfn" path="res://head.png" id="6_up5o4"]
+[ext_resource type="Texture2D" uid="uid://dmbetgtul67t" path="res://torso2.png" id="2_jaoer"]
+[ext_resource type="Texture2D" uid="uid://cornfry57a73a" path="res://leg2.png" id="7_8lhrm"]
+[ext_resource type="Texture2D" uid="uid://ckfgf5awodso6" path="res://bottomhp.png" id="7_jaoer"]
+[ext_resource type="Texture2D" uid="uid://pb7d4lsxkwsc" path="res://Tophp.png" id="8_8lhrm"]
+[ext_resource type="Texture2D" uid="uid://bsso0f3er435e" path="res://arm2.png" id="8_up5o4"]
+[ext_resource type="Texture2D" uid="uid://db4el83a755qc" path="res://Playerhp.png" id="9_up5o4"]
+[ext_resource type="Texture2D" uid="uid://bu7c7xgv025dk" path="res://head2.png" id="9_wh5uk"]
+[ext_resource type="Script" uid="uid://cab1gqvjna7ff" path="res://hp_2.gd" id="10_8lhrm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyu8a"]
 size = Vector2(74, 134)
@@ -14,7 +17,7 @@ size = Vector2(74, 134)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0jhxp")
+"texture": ExtResource("2_jaoer")
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +31,7 @@ size = Vector2(28, 83)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_6iqoo")
+"texture": ExtResource("7_8lhrm")
 }],
 "loop": true,
 "name": &"default",
@@ -42,7 +45,7 @@ size = Vector2(28, 83)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_6iqoo")
+"texture": ExtResource("7_8lhrm")
 }],
 "loop": true,
 "name": &"default",
@@ -56,7 +59,7 @@ size = Vector2(13.1485, 28.4841)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_jaoer")
+"texture": ExtResource("8_up5o4")
 }],
 "loop": true,
 "name": &"default",
@@ -70,7 +73,7 @@ size = Vector2(29.0356, 82.6818)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8lhrm")
+"texture": ExtResource("8_up5o4")
 }],
 "loop": true,
 "name": &"default",
@@ -84,7 +87,7 @@ size = Vector2(53, 34)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_up5o4")
+"texture": ExtResource("9_wh5uk")
 }],
 "loop": true,
 "name": &"default",
@@ -95,8 +98,8 @@ animations = [{
 size = Vector2(73, 131)
 
 [node name="Player2" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_1hlws")
 
 [node name="Head-Torso" type="PinJoint2D" parent="."]
@@ -138,6 +141,18 @@ shape = SubResource("RectangleShape2D_iyu8a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torso"]
 sprite_frames = SubResource("SpriteFrames_qqcrl")
+
+[node name="hp2" type="TextureProgressBar" parent="Torso"]
+offset_left = -63.0
+offset_top = -169.0
+offset_right = 61.0
+offset_bottom = -128.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_jaoer")
+texture_over = ExtResource("8_8lhrm")
+texture_progress = ExtResource("9_up5o4")
+script = ExtResource("10_8lhrm")
 
 [node name="LLeg" type="RigidBody2D" parent="."]
 collision_layer = 0
